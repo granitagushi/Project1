@@ -1,0 +1,57 @@
+/* Globales Layout */
+body {
+  background-color: #28a745; /* Grüner Hintergrund */
+  color: black; /* Schwarze Schrift */
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #218838; /* Dunkleres Grün */
+  border-bottom: 2px solid #1e7e34;
+}
+
+.navbar .nav-link {
+  color: white; /* Weiße Schrift */
+}
+
+.navbar .nav-link:hover {
+  color: #ffc107; /* Gelbe Schrift beim Hover */
+}
+
+/* Footer */
+footer {
+  background-color: #218838; /* Dunkler Footer */
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Karten */
+.card {
+  background-color: #000000; /* Schwarzer Hintergrund */
+  color: white; /* Weiße Schrift */
+  border: 1px solid #343a40; /* Dunkelgraue Umrandung */
+  border-radius: 10px; /* Abgerundete Ecken */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schatten */
+  transition: transform 0.2s, box-shadow 0.2s; /* Hover-Effekt */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Vergrößerung bei Hover */
+  box-shadow: 0 6px 12px rgba(18, 1, 1, 0.938); /* Stärkerer Schatten bei Hover */
+}
+
+.card-title {
+  color: #ffc107; /* Gelbe Schrift für Titel */
+}
+
+.card-text {
+  color: #ced4da; /* Helles Grau für normalen Text */
+}
