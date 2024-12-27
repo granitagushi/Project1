@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "@sveltejs/adapter-netlify": "^4.4.0"
+  },
+  "dependencies": {
+    "mongodb": "^6.12.0"
   }
 }
