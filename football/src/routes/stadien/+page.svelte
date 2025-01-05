@@ -13,7 +13,7 @@
     if (newData.results.length > 0) {
       results = [...results, ...newData.results];
     } else {
-      hasMoreResults = false; // Keine weiteren Ergebnisse
+      hasMoreResults = false;
     }
   }
 </script>
@@ -42,14 +42,6 @@
       </div>
     {/each}
   </div>
-
-  {#if hasMoreResults}
-    <div class="text-center mt-4">
-      <button class="btn btn-secondary" on:click={loadMore}>
-        Weitere Ergebnisse laden
-      </button>
-    </div>
-  {/if}
 </div>
 
 <style>

@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 import { DB_URI } from "$env/static/private";
 
-// Verbindung zur MongoDB herstellen
+
 const client = new MongoClient(DB_URI);
 await client.connect();
 const db = client.db("EinzelprojektPT");
@@ -35,20 +35,31 @@ export default {
       .skip(skip)
       .limit(limit)
       .project({ _id: 0, Name: 1, Abkürzung: 1, Image: 1 })
-      .map((doc) => ({ ...doc, image: doc.Image })) // Normalisiert Image zu image
+      .map((doc) => ({ ...doc, image: doc.Image })) 
       .toArray();
   },
 
   getManagers: async (skip = 0, limit = 30) => {
-    const collection = db.collection("Manager");
-    return await collection
-      .find({})
-      .skip(skip)
-      .limit(limit)
-      .project({ _id: 0, Vorname: 1, Nachname: 1, Image: 1 })
-      .map((doc) => ({ ...doc, image: doc.Image })) // Normalisiert Image zu image
-      .toArray();
-  },
+    try {
+        const collection = db.collection("Manager");
+        const managers = await collection
+            .find({})
+            .skip(skip)
+            .limit(limit)
+            .project({ _id: 0, Vorname: 1, Nachname: 1, Image: 1 })
+            .toArray();
+        
+        console.log("Managers loaded:", managers);
+        return managers.map(doc => ({
+            ...doc,
+            image: doc.Image
+        }));
+    } catch (error) {
+        console.error("Error loading managers:", error);
+        throw new Error("Failed to load managers.");
+    }
+},
+
 
   getStadiums: async (skip = 0, limit = 30) => {
     const collection = db.collection("Stadien");
@@ -93,12 +104,12 @@ export default {
 
     const clubs = await db.collection("Vereine").find({ Name: { $regex: lowerQuery, $options: "i" } })
       .project({ _id: 0, Name: 1, Abkürzung: 1, Image: 1 })
-      .map((doc) => ({ ...doc, image: doc.Image })) // Normalisiert Image zu image
+      .map((doc) => ({ ...doc, image: doc.Image })) 
       .toArray();
 
     const managers = await db.collection("Manager").find({ $or: searchConditions })
       .project({ _id: 0, Vorname: 1, Nachname: 1, Image: 1 })
-      .map((doc) => ({ ...doc, image: doc.Image })) // Normalisiert Image zu image
+      .map((doc) => ({ ...doc, image: doc.Image })) 
       .toArray();
 
     const stadiums = await db.collection("Stadien").find({ Name: { $regex: lowerQuery, $options: "i" } })

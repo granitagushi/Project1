@@ -44,14 +44,6 @@
       </div>
     {/each}
   </div>
-
-  {#if hasMoreResults}
-    <div class="text-center mt-4">
-      <button class="btn btn-secondary" on:click={loadMore}>
-        Weitere Ergebnisse laden
-      </button>
-    </div>
-  {/if}
 </div>
 
 <style>

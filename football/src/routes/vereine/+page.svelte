@@ -35,21 +35,16 @@
           {/if}
           <div class="card-body">
             <h5 class="card-title">{result.Name}</h5>
-            <p class="card-text"><strong>Abkürzung:</strong> {result.Abkürzung}</p>
+            <p class="card-text">
+              <strong>Abkürzung:</strong>
+              {result.Abkürzung}
+            </p>
             <p class="card-text"><strong>Kategorie:</strong> Verein</p>
           </div>
         </div>
       </div>
     {/each}
   </div>
-
-  {#if hasMoreResults}
-    <div class="text-center mt-4">
-      <button class="btn btn-secondary" on:click={loadMore}>
-        Weitere Ergebnisse laden
-      </button>
-    </div>
-  {/if}
 </div>
 
 <style>

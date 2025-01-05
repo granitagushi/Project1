@@ -1,5 +1,5 @@
 <script>
-  import "./style.css"; // Globale CSS-Datei
+  import "./style.css"; 
   let { children } = $props();
 </script>
 
@@ -14,7 +14,6 @@
   />
 </svelte:head>
 
-<!-- Navbar -->
 <nav
   class="navbar navbar-expand-lg bg-dark"
   data-bs-theme="dark"

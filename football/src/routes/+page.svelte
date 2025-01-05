@@ -16,7 +16,7 @@
 
   const addItem = async () => {
     if (newItem.type === "Manager" || newItem.type === "Vereine") {
-      newItem.Image = newItem.image; // Großes "Image"
+      newItem.Image = newItem.image;
       delete newItem.image;
     }
     const response = await fetch("/api/add-item", {
@@ -58,7 +58,6 @@
     ⚽ <i class="fas fa-globe"></i> Willkommen zur Football World 🌍
   </h1>
 
-  <!-- Suchbereich -->
   <div class="mb-4">
     <div class="input-group">
       <input
@@ -71,39 +70,40 @@
     </div>
   </div>
 
-  <!-- Suchergebnisse -->
   {#if query && searchResults.length > 0}
-  <div class="row">
-    {#each searchResults as result}
-    <div class="col-md-4">
-      <div class="card shadow-sm">
-        {#if result.image}
-        <img
-          src={result.image}
-          class="card-img-top img-thumbnail mx-auto mt-3"
-          alt={result.Name || `${result.Vorname} ${result.Nachname}`}
-        />
-        {/if}
-        <div class="card-body text-center">
-          <h5 class="card-title">
-            {result.Name || `${result.Vorname} ${result.Nachname}`}
-          </h5>
-          {#if result.Abkürzung}
-          <p class="card-text"><strong>Abkürzung:</strong> {result.Abkürzung}</p>
-          {/if}
-          <p class="card-text"><strong>Kategorie:</strong> {result.type}</p>
+    <div class="row">
+      {#each searchResults as result}
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            {#if result.image}
+              <img
+                src={result.image}
+                class="card-img-top img-thumbnail mx-auto mt-3"
+                alt={result.Name || `${result.Vorname} ${result.Nachname}`}
+              />
+            {/if}
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                {result.Name || `${result.Vorname} ${result.Nachname}`}
+              </h5>
+              {#if result.Abkürzung}
+                <p class="card-text">
+                  <strong>Abkürzung:</strong>
+                  {result.Abkürzung}
+                </p>
+              {/if}
+              <p class="card-text"><strong>Kategorie:</strong> {result.type}</p>
+            </div>
+          </div>
         </div>
-      </div>
+      {/each}
     </div>
-    {/each}
-  </div>
   {:else if query}
-  <p class="text-center text-danger">
-    Keine Ergebnisse für "{query}" gefunden
-  </p>
+    <p class="text-center text-danger">
+      Keine Ergebnisse für "{query}" gefunden
+    </p>
   {/if}
 
-  <!-- Neuen Eintrag hinzufügen -->
   <h2 class="mt-5">Neuen Eintrag hinzufügen</h2>
   <form>
     <div class="form-group mb-3">
@@ -117,71 +117,76 @@
     </div>
 
     {#if showField("Vorname")}
-    <div class="form-group mb-3">
-      <label for="vorname">Vorname:</label>
-      <input
-        id="vorname"
-        type="text"
-        class="form-control"
-        bind:value={newItem.Vorname}
-        placeholder="Vorname"
-      />
-    </div>
+      <div class="form-group mb-3">
+        <label for="vorname">Vorname:</label>
+        <input
+          id="vorname"
+          type="text"
+          class="form-control"
+          bind:value={newItem.Vorname}
+          placeholder="Vorname"
+        />
+      </div>
     {/if}
 
     {#if showField("Nachname")}
-    <div class="form-group mb-3">
-      <label for="nachname">Nachname:</label>
-      <input
-        id="nachname"
-        type="text"
-        class="form-control"
-        bind:value={newItem.Nachname}
-        placeholder="Nachname"
-      />
-    </div>
+      <div class="form-group mb-3">
+        <label for="nachname">Nachname:</label>
+        <input
+          id="nachname"
+          type="text"
+          class="form-control"
+          bind:value={newItem.Nachname}
+          placeholder="Nachname"
+        />
+      </div>
     {/if}
 
     {#if showField("Name")}
-    <div class="form-group mb-3">
-      <label for="name">Name:</label>
-      <input
-        id="name"
-        type="text"
-        class="form-control"
-        bind:value={newItem.Name}
-        placeholder="Name"
-      />
-    </div>
+      <div class="form-group mb-3">
+        <label for="name">Name:</label>
+        <input
+          id="name"
+          type="text"
+          class="form-control"
+          bind:value={newItem.Name}
+          placeholder="Name"
+        />
+      </div>
     {/if}
 
     {#if showField("Abkürzung")}
-    <div class="form-group mb-3">
-      <label for="abkuerzung">Abkürzung (nur für Vereine):</label>
-      <input
-        id="abkuerzung"
-        type="text"
-        class="form-control"
-        bind:value={newItem.Abkürzung}
-        placeholder="Abkürzung"
-      />
-    </div>
+      <div class="form-group mb-3">
+        <label for="abkuerzung">Abkürzung (nur für Vereine):</label>
+        <input
+          id="abkuerzung"
+          type="text"
+          class="form-control"
+          bind:value={newItem.Abkürzung}
+          placeholder="Abkürzung"
+        />
+      </div>
     {/if}
 
     {#if showField("image")}
-    <div class="form-group mb-3">
-      <label for="image">Bild-URL:</label>
-      <input
-        id="image"
-        type="text"
-        class="form-control"
-        bind:value={newItem.image}
-        placeholder="Bild-URL"
-      />
-    </div>
+      <div class="form-group mb-3">
+        <label for="image">Bild-URL:</label>
+        <input
+          id="image"
+          type="text"
+          class="form-control"
+          bind:value={newItem.image}
+          placeholder="Bild-URL"
+        />
+      </div>
     {/if}
 
-    <button class="btn btn-success mt-3" type="button" on:click={addItem}>
+    <button
+      class="btn mt-3"
+      type="button"
+      on:click={addItem}
+      style="background-color: black; color: white;"
+    >
       Eintrag hinzufügen
     </button>
   </form>
@@ -189,25 +194,27 @@
 
 <style>
   .card {
-    background-color: #000000; /* Schwarzer Hintergrund */
-    color: white; /* Weiße Schrift */
-    border: 1px solid #343a40; /* Dunkelgraue Umrandung */
-    border-radius: 10px; /* Abgerundete Ecken */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schatten */
-    transition: transform 0.2s, box-shadow 0.2s; /* Hover-Effekt */
+    background-color: #000000;
+    color: white;
+    border: 1px solid #343a40;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
   }
 
   .card:hover {
-    transform: scale(1.05); /* Leichte Vergrößerung bei Hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stärkerer Schatten */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   }
 
   .card-title {
-    color: #ffc107; /* Gelbe Schrift */
+    color: #ffc107;
   }
 
   .card-text {
-    color: #ced4da; /* Helles Grau */
+    color: #ced4da;
   }
 
   .gradient-text {
@@ -232,7 +239,7 @@
   }
 
   .img-thumbnail {
-    width: 80px; /* Kleinere Bilder */
+    width: 80px;
     height: 80px;
     object-fit: cover;
     border-radius: 10px;
