@@ -3,16 +3,6 @@
   let { children } = $props();
 </script>
 
-<svelte:head>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-  />
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
-</svelte:head>
 
 <nav
   class="navbar navbar-expand-lg bg-dark"
@@ -60,10 +50,21 @@
   </div>
 </nav>
 
+
+
+
 <div class="container mt-3">
   {@render children()}
 </div>
 
+
+
 <footer class="text-center mt-4">
   <p>© 2024 Football World. Alle Rechte vorbehalten.</p>
 </footer>
+
+<style>
+  .nav-link:hover {
+    color: #ffc107;
+  }
+  </style>
