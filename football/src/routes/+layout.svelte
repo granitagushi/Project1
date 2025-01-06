@@ -1,17 +1,20 @@
 <script>
+  // Import von CSS-Styles und Initialisierung
   import "./style.css"; 
   let { children } = $props();
 </script>
 
-
+<!-- Navigationsleiste -->
 <nav
   class="navbar navbar-expand-lg bg-dark"
   data-bs-theme="dark"
 >
   <div class="container-fluid">
+    <!-- Logo und Markenname -->
     <a class="navbar-brand" href="/">
       <i class="fas fa-futbol"></i> <span class="shadow-text">Football World</span>
     </a>
+    <!-- Toggle-Button für mobile Ansicht -->
     <button
       class="navbar-toggler"
       type="button"
@@ -24,6 +27,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Navigationslinks -->
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/spieler">
@@ -50,15 +54,12 @@
   </div>
 </nav>
 
-
-
-
+<!-- Hauptinhalt -->
 <div class="container mt-3">
   {@render children()}
 </div>
 
-
-
+<!-- Fusszeile -->
 <footer class="text-center mt-4">
   <p>© 2024 Football World. Alle Rechte vorbehalten.</p>
 </footer>
@@ -67,4 +68,4 @@
   .nav-link:hover {
     color: #ffc107;
   }
-  </style>
+</style>

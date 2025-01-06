@@ -1,34 +1,37 @@
+/* Hintergrund und globale Schrift */
 body {
-  background-color: #28a745;
+  background-color: #28a745; /* Grüner Hintergrund */
   color: black;
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
 }
 
+/* Navigation */
 .navbar {
-  background-color: #218838;
-  border-bottom: 2px solid #1e7e34;
+  background-color: #218838; /* Dunkler Grünton für die Navigation */
+  border-bottom: 2px solid #1e7e34; /* Unterstrich in noch dunklerem Grün */
 }
 
 .navbar .nav-link {
-  color: white;
+  color: white; /* Weisse Schriftfarbe für Links */
 }
 
 .navbar .nav-link:hover {
-  color: #ffc107;
+  color: #ffc107; /* Goldene Farbe bei Hover */
 }
 
+/* Karten-Styling */
 .card {
-  background-color: #000;
+  background-color: #000; /* Schwarzer Hintergrund */
   color: white;
-  border: 1px solid #343a40;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #343a40; /* Dunkelgrauer Rand */
+  border-radius: 10px; /* Abgerundete Ecken */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schatteneffekt */
+  transition: transform 0.2s, box-shadow 0.2s; /* Glatte Übergänge bei Hover */
 }
 
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05); /* Leichtes Vergrössern bei Hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Intensiverer Schatten bei Hover */
 }

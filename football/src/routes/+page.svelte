@@ -1,4 +1,5 @@
 <script>
+  // Datenübergabe und Initialisierung
   export let data;
 
   let query = data.query || "";
@@ -14,6 +15,7 @@
     image: "",
   };
 
+  // Eintrag hinzufügen
   const addItem = async () => {
     if (newItem.type === "Manager" || newItem.type === "Vereine") {
       newItem.Image = newItem.image;
@@ -33,6 +35,7 @@
     }
   };
 
+  // Anzeige der Eingabefelder basierend auf Typ
   const showField = (field) => {
     if (newItem.type === "Spieler" || newItem.type === "Manager") {
       return field === "Vorname" || field === "Nachname" || field === "image";
@@ -46,6 +49,7 @@
     return false;
   };
 
+  // Suchfunktion
   const performSearch = () => {
     if (query) {
       window.location.href = `/?query=${query}`;
@@ -53,11 +57,14 @@
   };
 </script>
 
+<!-- Hauptcontainer -->
 <div class="container my-5">
+  <!-- Überschrift -->
   <h1 class="text-center mb-4 gradient-text">
     ⚽ <i class="fas fa-globe"></i> Willkommen zur Football World 🌍
   </h1>
 
+  <!-- Suchleiste -->
   <div class="mb-4">
     <div class="input-group">
       <input
@@ -70,6 +77,7 @@
     </div>
   </div>
 
+  <!-- Suchergebnisse -->
   {#if query && searchResults.length > 0}
     <div class="row">
       {#each searchResults as result}
@@ -104,6 +112,7 @@
     </p>
   {/if}
 
+  <!-- Formular für neuen Eintrag -->
   <h2 class="mt-5">Neuen Eintrag hinzufügen</h2>
   <form>
     <div class="form-group mb-3">
