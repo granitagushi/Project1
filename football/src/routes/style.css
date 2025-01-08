@@ -41,3 +41,8 @@ body {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   /* Intensiverer Schatten bei Hover */
 }
+h1 {
+  color: #000000; /* Ändere die Farbe hier, z. B. Blau */
+  font-size: 2.5rem; /* Optional: Ändere die Schriftgröße */
+  font-weight: bold; /* Optional: Setze den Text fett */
+}
