@@ -31,14 +31,6 @@
     animation: gradient-move 3s infinite;
   }
 
-  @keyframes gradient-move {
-    0% {
-      background-position: 0%;
-    }
-    100% {
-      background-position: 100%;
-    }
-  }
 
   /* Liste der Spieler */
   .list-group {

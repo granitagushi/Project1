@@ -63,9 +63,3 @@
 <footer class="text-center mt-4">
   <p>© 2024 Football World. Alle Rechte vorbehalten.</p>
 </footer>
-
-<style>
-  .nav-link:hover {
-    color: #ffc107;
-  }
-</style>
