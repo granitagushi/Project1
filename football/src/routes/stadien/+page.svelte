@@ -23,7 +23,7 @@
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(
-          errorData.message || "Fehler beim Löschen des Stadions."
+          errorData.message || "Fehler beim Löschen des Stadions.",
         );
       }
 
@@ -42,28 +42,20 @@
 
   <div class="row">
     {#each results as result}
-    <div class="col-md-4">
-      <div class="card mb-4">
-        {#if result.image}
-        <img
-          src={result.image}
-          class="card-img-top img-thumbnail"
-          alt={result.Name}
-          style="max-height: 150px; object-fit: cover;"
-        />
-        {/if}
-        <div class="card-body">
-          <!-- Stadion-Details -->
-          <h5 class="card-title">{result.Name}</h5>
-          <button
-            on:click={() => deleteStadium(result.id)}
-            class="btn btn-danger"
-          >
-            Löschen
-          </button>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <!-- Stadion-Details -->
+            <h5 class="card-title">{result.Name}</h5>
+            <button
+              on:click={() => deleteStadium(result.id)}
+              class="btn btn-danger"
+            >
+              Löschen
+            </button>
+          </div>
         </div>
       </div>
-    </div>
     {/each}
   </div>
 </div>
@@ -71,19 +63,6 @@
 <style>
   .card {
     margin-bottom: 20px;
-  }
-
-  .card-img-top {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-  }
-
-  .img-thumbnail {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 5px;
   }
 
   .btn-danger {

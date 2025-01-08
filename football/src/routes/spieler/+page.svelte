@@ -53,7 +53,7 @@
     padding: 15px 20px;
     color: white;
     background-color: #000;
-    border-bottom: 1px solid #343a40;
+    border-bottom: 1px solid #f2f4f5;
     transition: background-color 0.2s ease;
   }
 
@@ -67,8 +67,5 @@
     color: #ffc107;
   }
 
-  .btn-success:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  }
+ 
 </style>

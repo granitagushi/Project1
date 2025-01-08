@@ -1,8 +1,9 @@
 <script>
   export let data;
 
-  console.log("Spieler-Daten:", data.player); // Debug-Log zur Überprüfung der Daten
+  console.log("Spieler-Daten:", data.player);
 
+  //delete function
   async function deletePlayer() {
     const id = data.player.id || data.player._id?.toString();
 
@@ -80,7 +81,7 @@
   <!-- Delete-Button -->
   <div class="text-center mt-4">
     <button on:click={deletePlayer} class="btn btn-danger">
-      Spieler löschen
+      Löschen
     </button>
   </div>
 </div>

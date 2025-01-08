@@ -24,7 +24,7 @@ export async function load({ params }) {
   // Bereite die Spielerdaten auf, die an die Svelte-Komponente übergeben werden
   return {
     player: {
-      id: player.id || player._id?.toString(), // Nutze MongoDB ObjectID falls vorhanden
+      id: player.id || player._id?.toString(), 
       Vorname: player.Vorname,
       Nachname: player.Nachname,
       image: player.image || null, // Falls kein Bild vorhanden

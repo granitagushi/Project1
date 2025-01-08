@@ -75,23 +75,14 @@ export default {
 
   // Manager abfragen
   getManagers: async (skip = 0, limit = 30) => {
-    try {
-      const collection = db.collection("Manager");
-      const managers = await collection
-        .find({})
-        .skip(skip)
-        .limit(limit)
-        .project({ _id: 0, id: 1, Vorname: 1, Nachname: 1, Image: 1 })
-        .toArray();
-
-      return managers.map((doc) => ({
-        ...doc,
-        image: doc.Image,
-      }));
-    } catch (error) {
-      console.error("Error loading managers:", error);
-      throw new Error("Failed to load managers.");
-    }
+    const collection = db.collection("Manager");
+    return await collection
+      .find({})
+      .skip(skip)
+      .limit(limit)
+      .project({ _id: 0, id: 1, Vorname: 1, Nachname: 1, Image: 1 })
+      .map((doc) => ({ ...doc, image: doc.Image }))
+      .toArray();
   },
 
   // Stadien abfragen

@@ -7,7 +7,7 @@
   let noSearchPerformed = !query;
 
   let newItem = {
-    type: "Spieler",
+    type: "",
     Vorname: "",
     Nachname: "",
     Name: "",
@@ -61,7 +61,8 @@
 <div class="container my-5">
   <!-- Überschrift -->
   <h1 class="text-center mb-4 gradient-text">
-    ⚽ <i class="fas fa-globe"></i> Willkommen zur Football World 🌍
+    <i class="fas fa-globe"></i> Willkommen zur Football World
+    <i class="fas fa-globe"></i>
   </h1>
 
   <!-- Suchleiste -->
@@ -231,15 +232,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradient-move 3s infinite;
-  }
-
-  @keyframes gradient-move {
-    0% {
-      background-position: 0%;
-    }
-    100% {
-      background-position: 100%;
-    }
   }
 
   .input-group {
