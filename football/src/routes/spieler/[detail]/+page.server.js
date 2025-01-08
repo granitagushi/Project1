@@ -2,8 +2,8 @@
 import db from "$lib/db.js";
 
 export async function load({ params }) {
-  const slug = params.slug; // Beispiel: "Arturo-LUPOLI"
-  const [Vorname, Nachname] = slug.split("-");
+  const detail = params.detail; // Beispiel: "Arturo-LUPOLI"
+  const [Vorname, Nachname] = detail.split("-");
 
   // Den Spieler basierend auf Vor- und Nachnamen zu finden
   const player = await db.collection("Spieler").findOne({

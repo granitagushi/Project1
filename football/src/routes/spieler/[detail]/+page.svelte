@@ -141,12 +141,5 @@
     background-color: #c82333;
   }
 
-  @keyframes gradient-move {
-    0% {
-      background-position: 0%;
-    }
-    100% {
-      background-position: 100%;
-    }
-  }
+  
 </style>
